@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>InfiltraRead - 潜入者阅读器</title>
+  <style>
+    body {
+      width: 300px;
+      font-family: 'Microsoft YaHei', sans-serif;
+      padding: 10px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+    }
+    .header p {
+      margin: 5px 0 0;
+      font-size: 12px;
+      color: #666;
+    }
+    .section {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+    .section:last-child {
+      border-bottom: none;
+    }
+    .section-title {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    .upload-area {
+      border: 2px dashed #ccc;
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .upload-area:hover {
+      border-color: #999;
+    }
+    .upload-area p {
+      margin: 0;
+      font-size: 12px;
+    }
+    .button {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      width: 100%;
+    }
+    .button:hover {
+      background-color: #3367d6;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: none;
+      font-size: 12px;
+    }
+    .disguise-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+    .disguise-option {
+      flex: 1 0 45%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .disguise-option:hover {
+      background-color: #f0f0f0;
+    }
+    .disguise-option.active {
+      background-color: #e6f2ff;
+      border-color: #4285f4;
+    }
+    select, input {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .status {
+      font-size: 12px;
+      color: #4caf50;
+      text-align: center;
+      margin-top: 10px;
+      height: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>潜入者阅读器</h1>
+    <p>伪装式阅读，谋略型摸鱼</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📚 导入小说</div>
+    <div class="upload-area" id="uploadArea">
+      <p>点击选择文件（.txt或.epub）<br>或拖放文件到此处</p>
+    </div>
+    <input type="file" id="fileInput" style="display: none;" accept=".txt,.epub">
+    <div class="section-title">或粘贴文本：</div>
+    <textarea id="textInput" placeholder="在此粘贴小说文本..."></textarea>
+    <button class="button" id="importButton">导入文本</button>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🎭 伪装设置</div>
+    <div class="disguise-options">
+      <div class="disguise-option active" data-mode="auto">自动伪装</div>
+      <div class="disguise-option" data-mode="code">代码编辑器</div>
+      <div class="disguise-option" data-mode="excel">电子表格</div>
+      <div class="disguise-option" data-mode="document">文档风格</div>
+    </div>
+    <select id="fontSelect">
+      <option value="auto">自动选择字体</option>
+      <option value="simsun">宋体</option>
+      <option value="microsoft yahei">微软雅黑</option>
+      <option value="consolas">Consolas (代码风格)</option>
+      <option value="songti">宋体</option>
+      <option value="kaiti">楷体</option>
+    </select>
+    <input type="range" id="opacityRange" min="50" max="100" value="95">
+    <div style="display: flex; justify-content: space-between; font-size: 12px; color: #666;">
+      <span>透明度</span>
+      <span id="opacityValue">95%</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">⚙️ 控制</div>
+    <button class="button" id="toggleReaderButton">开始阅读</button>
+    <div class="status" id="statusMessage"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html> 

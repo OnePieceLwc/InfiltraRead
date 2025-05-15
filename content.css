@@ -1,0 +1,63 @@
+/* 阅读器容器 */
+#infiltra-reader {
+  transition: opacity 0.3s ease;
+  font-family: 'Microsoft YaHei', sans-serif;
+  user-select: none;
+}
+
+/* 临时隐藏状态 */
+#infiltra-reader.temporarily-hidden {
+  opacity: 0 !important;
+  transition: opacity 0.15s ease !important;
+}
+
+/* 内容区域可选择文本 */
+#infiltra-reader-content {
+  user-select: text;
+}
+
+/* 内容区域滚动条样式 */
+#infiltra-reader-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+#infiltra-reader-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#infiltra-reader-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+/* 内容区段落样式 */
+#infiltra-reader-content p {
+  margin: 0.8em 0;
+}
+
+/* 代码风格时的特殊样式 */
+#infiltra-reader.code-style #infiltra-reader-content {
+  font-family: Consolas, Monaco, 'Courier New', monospace;
+}
+
+/* 电子表格风格时的特殊样式 */
+#infiltra-reader.excel-style #infiltra-reader-content {
+  font-family: Calibri, Arial, sans-serif;
+}
+
+/* 阅读器头部悬停效果 */
+#infiltra-reader-header:hover {
+  opacity: 1 !important;
+}
+
+/* 按钮悬停效果 */
+#infiltra-reader-header div:last-child div:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+/* 阅读器拖拽时的样式 */
+#infiltra-reader.dragging {
+  opacity: 0.8;
+  transition: none;
+} 
